@@ -13,8 +13,7 @@ botaoAdicionar.addEventListener("click", function(event){
     return;
   }
 
-  var tabela = document.querySelector("#tabela-pacientes");
-  tabela.appendChild(montaTr(paciente));
+  adicionaPaciente(paciente)
 
   form.reset();
   document.querySelector("#mensagem-erro").innerHTML = "";
@@ -81,6 +80,11 @@ function validaPaciente(paciente){
   if (paciente.altura.length == 0) erros.push("A altura não pode ser em branco");
 
   return erros;
+}
+
+function adicionaPaciente(paciente){
+  var tabela = document.querySelector("#tabela-pacientes");
+  tabela.appendChild(montaTr(paciente));
 }
 
 function exibeMensagemErro(erros){
